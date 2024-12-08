@@ -1,14 +1,18 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Button } from "./ui/button";
 
 
 export default function NavBar(){
 
     const [activeSection, setActiveSection] = useState<string>("jenaide");
     const [scrollProgress, setScrollProgress] = useState<number>(0);
+
+    // for hamburger
+    const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
     // Observe sections and update the active section
     useEffect(() => {
@@ -51,10 +55,15 @@ export default function NavBar(){
         visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
       };
     
-      const underlineVariants = {
+    const underlineVariants = {
         initial: { width: "0%", opacity: 0 },
         animate: { width: "100%", opacity: 1, transition: { duration: 0.3 } },
-      };
+    };
+
+    const mobileMenuVariants = {
+        hidden: { x: "100%", opacity: 0 },
+        visible: { x: 0, opacity: 1, transition: { type: "spring", stiffness: 100 } },
+    };
 
     return (
         <>
@@ -66,9 +75,9 @@ export default function NavBar(){
                 animate={{ width: `${scrollProgress}` }}
             />
 
-            {/* Navbar */}
+            {/* Navbar (only visible on larger screens) */}
             <motion.nav 
-                className="fixed flex justify-between w-full z-50 py-2 px-4"
+                className="fixed justify-between items-center w-full z-50 py-4 px-6 bg-white shadow-md hidden md:flex"
                 initial="hidden"
                 animate="visible"
                 variants={menuVariants}
@@ -89,6 +98,7 @@ export default function NavBar(){
                         </motion.div>
                     </div>
                     
+                    {/* Desktop Links */}
                     <ul className="flex space-x-6 text-lg">
                         {[
                             { label: "About", href: "#about" },
@@ -126,6 +136,58 @@ export default function NavBar(){
                         ))}
                     </ul>
             </motion.nav>
+
+
+            {/* Hamburger Button for small screens */}
+            <Button
+            variant={"outline"}
+                className="block md:hidden z-50"
+                onClick={() => setMenuOpen(!menuOpen)}
+                aria-label="Toggle menu"
+            >
+                <motion.div
+                className="w-8 h-1 bg-gray-900 mb-1"
+                animate={{ rotate: menuOpen ? 45 : 0, y: menuOpen ? 6 : 0 }}
+                />
+                <motion.div
+                className="w-8 h-1 bg-gray-900"
+                animate={{ opacity: menuOpen ? 0 : 1 }}
+                />
+                <motion.div
+                className="w-8 h-1 bg-gray-900 mt-1"
+                animate={{ rotate: menuOpen ? -45 : 0, y: menuOpen ? -6 : 0 }}
+                />
+            </Button>
+
+            {/* Mobile Menu */}
+            <AnimatePresence>
+                {menuOpen && (
+                    <motion.div
+                        className="fixed top-0 right-0 w-2/3 h-screen bg-white shadow-md flex flex-col items-center pt-20 space-y-6 z-40"
+                        initial="hidden"
+                        animate="visible"
+                        exit="hidden"
+                        variants={mobileMenuVariants}
+                    >
+                        {[
+                            { label: "About", href: "#about" },
+                            { label: "Education", href: "#education" },
+                            { label: "Skills", href: "#skills" },
+                            { label: "Projects", href: "#projects" },
+                            { label: "Contact", href: "#contact" },
+                            ].map(({ label, href }) => (
+                        <Link
+                            key={label}
+                            href={href}
+                            onClick={() => setMenuOpen(false)}
+                            className="text-xl text-gray-800 hover:text-sky-500"
+                        >
+                            {label}
+                        </Link>
+                        ))}
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </>
     )
 }
