@@ -21,16 +21,16 @@ export default function Introduction(){
     }
 
     return (
-        <section className='flex flex-col md:flex-row items-center justify-center px-8 space-y-8 md:space-y-0 min-h-screen py-10 bg-gray-100' >
+        <section className='flex flex-col md:flex-row items-center justify-center px-8 space-y-8 md:space-y-0 min-h-screen py-10 bg-gray-50' >
             {/* Profile Picture with Hover Effect */}
-            <div className='flex flex-col md:w-1/2 items-center md:items-start'>
-                <div className='ml-36'>
+            <div className='flex flex-col md:w-1/2 items-center md:items-center'>
+                <div className='flex justify-center md:justify-end w-full'>
                     <Image 
                         src={ProfileImage}
                         alt='profile'
                         width={300}
                         height={300}
-                        className='rounded-full shadow-lg object-cover'
+                        className='w-40 sm:w-48 md:w-60 lg:w-72 h-auto rounded-full mx-auto md:mx-0'
                     />
                 </div>
             </div>
@@ -40,10 +40,10 @@ export default function Introduction(){
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.9 }}
-                className='space-y-10 mr-24'
+                className='flex flex-col md:w-1/2 items-center md:items-start mx-auto space-y-6 md:space-y-10'
                 >
                 <p className='text-center justify-center text-gray-700 text-xl'>Hello, I&apos;m a</p>
-                <h1 className='text-4xl lg:text-5xl font-bold text-gray-500'>Software Developer</h1>
+                <h1 className='text-4xl lg:text-5xl font-bold text-gray-500 text-center md:text-left0'>Software Developer</h1>
 
                 {/* Buttons with Hover Animations */}
                 <div className='flex flex-col justify-center lg:flex-row items-center space-y-4 lg:space-y-0 lg:space-x-6 mt-4'>
@@ -62,7 +62,7 @@ export default function Introduction(){
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
-                    className='flex items-center justify-center space-x-7'
+                    className='flex justify-center md:justify-start space-x-7'
                     >
                     <Link href={"https://discord.com/channels/@me"} target='_blank' className='text-gray-600 hover:text-purple-600 transform hover:scale-110 transition-all duration-300 ease-in-out'>
                         <FaDiscord className='w-8 h-8' />

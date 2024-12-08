@@ -77,7 +77,7 @@ export default function NavBar(){
 
             {/* Navbar (only visible on larger screens) */}
             <motion.nav 
-                className="fixed justify-between items-center w-full z-50 py-4 px-6 bg-white shadow-md hidden md:flex"
+                className="fixed justify-between items-center w-full z-50 py-4 px-6 hidden md:flex"
                 initial="hidden"
                 animate="visible"
                 variants={menuVariants}
