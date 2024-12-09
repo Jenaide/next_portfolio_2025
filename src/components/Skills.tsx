@@ -34,7 +34,7 @@ export default function Skills(){
             {/* Heading */}
             <h2 className="text-gray-400 text-lg uppercase tracking-widest">Here are some of my</h2>
             <motion.h1
-                className="text-4xl md:text-5xl font-bold mb-8 text-gray-900"
+                className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-slate-500 to-stone-800"
                 initial={{ opacity: 0, y: -50 }}
                 animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
             >

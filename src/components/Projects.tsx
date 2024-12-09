@@ -63,7 +63,7 @@ export default function Projects(){
                     transition={{ duration: 0.6 }}
                     >
                     <h2 className="text-gray-400 text-lg uppercase tracking-widest">Look At My</h2>
-                    <h1 className="text-4xl font-bold bg-clip-text bg-gradient-to-r from-gray-100 to-stone-800">Projects</h1>
+                    <h1 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-300 via-slate-600 to-gray-900">Projects</h1>
                     <p className="mt-4 text-gray-600 ">A collection of my favourite projects.</p>
                 </motion.div>
 

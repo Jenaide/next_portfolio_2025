@@ -45,7 +45,7 @@ const cardVariants = {
 export default function Education() {
     
   return (
-    <section id="contact" className="flex flex-col bg-gray-50 items-center justify-between py-12">
+    <section id="contact" className="flex flex-col bg-gray-50 items-center py-12">
       <motion.div
         id="education"
         className="text-center"
@@ -53,14 +53,15 @@ export default function Education() {
         animate={{ opacity: 1, transition: { duration: 1 } }}
         >
           {/* Heading */}
-          <h2 className="text-gray-400 text-lg uppercase tracking-widest">Let&apos;s Get In-Touch</h2>
+          
           <motion.h1
-            className="text-4xl md:text-5xl font-bold mb-8 text-gray-900"
+            className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-slate-500 to-stone-800"
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, transition: { duration: 1 } }}
           >
             Education
           </motion.h1>
+          <motion.h2 className="text-gray-400 text-lg uppercase tracking-widest">get to know me more</motion.h2>
 
           {/* Timeline */}
           <div className="w-full max-w-4xl">

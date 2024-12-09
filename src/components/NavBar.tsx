@@ -92,7 +92,7 @@ export default function NavBar(){
                                       }`}
                                     whileHover={{ scale: 1.1 }}
                                 >
-                                    JS
+                                    Jenaide Sibolie
                                 </motion.h1>
                             </Link>
                         </motion.div>

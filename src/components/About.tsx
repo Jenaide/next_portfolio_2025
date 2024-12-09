@@ -20,7 +20,7 @@ export default function About(){
         }
     }
     return (
-        <section id="about" className="min-h-screen">
+        <section id="about" className="min-h-screen mt-4">
             {/* Header Section */}
             <motion.div
                 className="text-center mb-4"
@@ -29,7 +29,7 @@ export default function About(){
                 transition={{ duration: 1 }}
             >
                 <h2 className="text-gray-400 text-lg uppercase tracking-widest">Get To Know Me</h2>
-                <h1 className="text-4xl font-bold text-gray-900">About Me</h1>
+                <h1 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-gray-950">About Me</h1>
             </motion.div>
 
             {/* Intro Section */}
