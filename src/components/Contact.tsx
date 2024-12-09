@@ -7,7 +7,7 @@ import LinkedIn from "./SVG/LinkedIn";
 export default function Contact(){
 
     return (
-        <section id="contact" className="flex flex-col bg-gray-50 items-center justify-between py-12">
+        <section id="contact" className="flex flex-col min-h-screen bg-gray-50 items-center justify-between py-12">
             {/* Header */}
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
@@ -28,7 +28,7 @@ export default function Contact(){
 
             {/* Center Links */}
             <motion.div
-                className="flex flex-row justify-center space-x-8 mt-24"
+                className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mt-12"
                 initial={{ opacity:0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.3 }}
@@ -37,7 +37,7 @@ export default function Contact(){
                     href="mailto:jenaidesibolie@gmail.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-6 py-3 bg-white border rounded-full shadow-md text-gray-800 hover:shadow-lg transition"
+                    className="flex items-center gap-2 px-6 py-3 w-full sm:w-auto bg-white border rounded-full shadow-md text-gray-800 hover:shadow-lg transition"
                     whileHover={{ scaleX: 1.1 }}
                 >
                     <Gmail className="text-lg mr3" />
@@ -48,10 +48,10 @@ export default function Contact(){
                     href="https://www.linkedin.com/in/jenaide-sibolie-57a340158/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-6 py-3 bg-white border rounded-full shadow-md text-gray-800 hover:shadow-lg transition"
+                    className="flex items-center gap-2 px-6 py-3 w-full sm:w-auto bg-white border rounded-full shadow-md text-gray-800 hover:shadow-lg transition"
                     whileHover={{ scale: 1.1 }}
                 >
-                    <LinkedIn className="text-lg mr3"/>
+                    <LinkedIn className="text-lg"/>
                     LinkedIn
                 </motion.a>
             </motion.div>
