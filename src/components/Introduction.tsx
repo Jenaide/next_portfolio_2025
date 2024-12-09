@@ -96,7 +96,7 @@ export default function Introduction(){
                         ease: 'easeInOut'
                     }
                 }}
-                className='absolute bottom-10 flex justify-center w-full'
+                className='hidden absolute bottom-10 md:flex justify-center w-full'
             >
                 <Button onClick={scrollToAbout} className='bg-sky-400 transform hover:scale-110 hover:bg-sky-700 transition-all duration-300 ease-in-out'>
                     <FaArrowDown className='w-10 h-10' />
