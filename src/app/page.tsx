@@ -1,15 +1,17 @@
+"use client"
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Education from "@/components/Education";
 import Introduction from "@/components/Introduction";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
-
+import { GoogleAnalytics } from 'nextjs-google-analytics';
 
 
 export default function Home() {
   return (
     <div className="">
+      <GoogleAnalytics trackPageViews />
       {/* Intro section */}
         <Introduction />
 

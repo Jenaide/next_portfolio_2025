@@ -1,107 +1,104 @@
 "use client";
-import Image from 'next/image';
-import { motion } from "framer-motion";
-import ProfileImage from "../static/images/jenaide_noBG.png"
-import { FaArrowDown, FaDiscord, FaGithub, FaLinkedin } from 'react-icons/fa';
-import Link from 'next/link';
-import { Button } from './ui/button';
 
+import { motion } from "framer-motion";
+import Image from "next/image";
+import ProfilePic from "../static/images/jenaide_noBG.png"
+import { Button } from "./ui/button";
+import Link from "next/link";
+import { FaDiscord, FaGithub, FaLinkedin } from "react-icons/fa";
+
+
+const scrollToContact = () => {
+    const aboutSection = document.getElementById("about");
+    aboutSection?.scrollIntoView({ behavior: "smooth" });
+};
 
 export default function Introduction(){
-
-    // smooth scroll
-    const scrollToAbout = () => {
-        const aboutSection = document.getElementById('about');
-        aboutSection?.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    const scrollToContact = () => {
-        const aboutSection = document.getElementById('contact');
-        aboutSection?.scrollIntoView({ behavior: 'smooth' });
-    }
-
     return (
-        <section className='flex flex-col md:flex-row items-center justify-center px-6 md:px-16 space-y-12 md:space-y-0 min-h-screen py-10 bg-gray-50' >
-            {/* Profile Picture with Hover Effect */}
-            <div className='flex flex-col w-full md:w-1/2 items-center md:items-end'>
-                <div className='w-full flex justify-center md:justify-end'>
-                    <Image 
-                        src={ProfileImage}
-                        alt='profile'
-                        width={300}
-                        height={300}
-                        className='w-32 sm:w-40 md:w-60 lg:w-72 h-auto rounded-full mx-auto md:mx-0'
-                    />
-                </div>
-            </div>
-
-            {/* Introduction */}
+        <motion.section
+            className='flex min-h-screen bg-gray-50 items-center justify-center p-32'
+            >
+            {/* Profile Picture Section */}
             <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.9 }}
-                className='w-full md:w-1/2 space-y-6 text-center md:text-left'
-                >
-                <p className='text-center justify-center text-gray-700 text-xl'>Hello, I&apos;m a</p>
-                <h1 className='text-4xl lg:text-5xl md:text-left font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-950'>Software Developer</h1>
+                className="w-1/2"
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
+            >
+                <Image 
+                    src={ProfilePic}
+                    alt="profile"
+                    width={300}
+                    height={300}
+                    className="h-auto rounded-full sm:w-40 md:w-60 lg:w-72 w-32"
+                />
+            </motion.div>
 
-                {/* Buttons with Hover Animations */}
-                <div className='flex flex-col lg:flex-row items-center justify-center md:justify-start space-y-4 lg:space-y-0 lg:space-x-6'>
-                    <Button 
+            {/* Introduction Section */}
+            <motion.div
+                className="w-1/2 flex-col items-center space-y-10 text-gray-700"
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+            >
+                <motion.h2 
+                    className="text-center text-xl"
+                    >
+                        Hello, I am <span>Jenaide Sibolie</span>
+                    </motion.h2>
+                <motion.h1 
+                    className="text-4xl text-center font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-950"
+                    >
+                        I&apos;m a Software Developer
+                    </motion.h1>
+
+                {/* Buttons Section */}
+                <div className="flex space-x-3 justify-center">
+                    <Button
                         onClick={() => window.open("https://docs.google.com/document/d/1NanA2qe9JZhq6P1hGxre2itjbYi4XwAP84_uBPIdrqw/edit?usp=sharing")}
-                        className='bg-sky-400 text-white py-2 px-6 rounded-md shadow-lg transform hover:bg-sky-600 hover:scale-105 transition-all duration-300 ease-in-out'>
+                        className="py-2 px-6 rounded-md shadow-lg bg-sky-500 hover:bg-sky-950 transform transition-all duration-300 ease-in-out"
+                    >
                         Download CV
                     </Button>
-                    <Button onClick={scrollToContact} className='bg-gray-800 text-white py-2 px-6 rounded-md shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out'>
+
+                    <Button
+                        onClick={scrollToContact}
+                        className="py-2 px-6 rounded-md shadow-lg bg-gray-500 hover:bg-gray-900 transform transition-all duration-300 ease-in-out"
+                    >
                         Contact Info
                     </Button>
                 </div>
 
-                {/* Social Icons with Hover Animations */}
-                <motion.div 
+                {/* Social Icons Section */}
+                <motion.div
                     initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    animate={{ opacity: 2, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
-                    className='flex justify-center md:justify-start space-x-7'
+                    className="flex space-x-9 justify-center"
+                >
+                    <Link 
+                        href="https://discord.com/channels/@me" 
+                        target='_blank' 
+                        className='text-gray-600 hover:text-purple-600 transform hover:scale-110 transition-all duration-300 ease-in-out'
                     >
+                        <FaDiscord className='w-12 h-12' />
+                    </Link>
+
                     <Link 
-                        href={"https://discord.com/channels/@me"} 
+                        href="https://github.com/Jenaide" 
                         target='_blank' 
-                        className='text-gray-600 hover:text-purple-600 transform hover:scale-110 transition-all duration-300 ease-in-out'>
-                        <FaDiscord className='w-8 h-8' />
+                        className="text-gray-600 hover:text-black transform hover:scale-110 transition-all duration-300 ease-in-out"
+                    >
+                        <FaGithub className='w-12 h-12' />
                     </Link>
                     <Link 
-                        href={"https://github.com/Jenaide"} 
+                        href="https://www.linkedin.com/in/jenaide-sibolie-57a340158/" 
                         target='_blank' 
-                        className="text-gray-600 hover:text-black transform hover:scale-110 transition-all duration-300 ease-in-out">
-                        <FaGithub className='w-8 h-8' />
-                    </Link>
-                    <Link 
-                        href={"https://www.linkedin.com/in/jenaide-sibolie-57a340158/"} 
-                        target='_blank' 
-                        className="text-gray-600 hover:text-sky-600 transform hover:scale-110 transition-all duration-300 ease-in-out">
-                        <FaLinkedin className='w-8 h-8' />
+                        className="text-gray-600 hover:text-sky-600 transform hover:scale-110 transition-all duration-300 ease-in-out"
+                    >
+                        <FaLinkedin className='w-12 h-12' />
                     </Link>
                 </motion.div>
             </motion.div>
-
-            {/* Bouncing Down Arrow */}
-            <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{
-                    y: {
-                        repeat: Infinity,
-                        repeatType: 'loop',
-                        duration: 1,
-                        ease: 'easeInOut'
-                    }
-                }}
-                className='hidden absolute bottom-10 md:flex justify-center w-full'
-            >
-                <Button onClick={scrollToAbout} className='bg-sky-400 transform hover:scale-110 hover:bg-sky-700 transition-all duration-300 ease-in-out'>
-                    <FaArrowDown className='w-10 h-10' />
-                </Button>
-            </motion.div>
-        </section>    
+        </motion.section>
     )
 }
